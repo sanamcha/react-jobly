@@ -43,6 +43,50 @@ class JoblyApi {
     return res.company;
   }
 
+  // obviously, you'll add a lot here ...
+//added here for get-companies by name
+  static async getCompanies(name) {
+    let res = await this.request("companies", { name });
+    return res.companies;
+  }
+//added here to get current-user by username
+static async getCurrentUser(username){
+  let res = await this.request(`users/${username}`);
+  return res.user;
+}
+
+//to get list of jobs filtered with title
+static async getJobs(title){
+  let res = await this.request("jobs", { title });
+  return res.jobs;
+}
+
+
+//added to apply for job
+static async applyToJob(username, id){
+  await this.request(`users/${username}/jobs/${id}`, {}, "post");
+}
+
+
+//to get token for login 
+static async login(data){
+  let res = await this.request(`auth/token`, data, "post");
+  return res.token;
+}
+
+
+//added for sign up
+static async signup(data){
+  let res = await this.request(`auth/register`, data, "post");
+  return res.token;
+}
+
+
+//added here for profile page
+static async saveProfile(username, data) {
+  let res = await this.request(`users/${username}`, data, "patch");
+  return res.user;
+} 
 
 }
 
