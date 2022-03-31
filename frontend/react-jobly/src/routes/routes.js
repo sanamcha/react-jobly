@@ -4,9 +4,9 @@ import Homepage from "../homepage/Homepage";
 import CompanyList from "../companies/CompanyList";
 import JobList from "../jobs/JobList";
 import CompanyDetail from "../companies/CompanyDetail";
-import LoginForm from "../auth/LoginForm";
-import ProfileForm from "../profiles/ProfileForm";
-import SignupForm from "../auth/SignupForm";
+import LoginForm from "../users/LoginForm";
+import ProfileForm from "../users/ProfileForm";
+import SignupForm from "../users/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 
 
