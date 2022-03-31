@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const LoginForm = ({ login }) => {
     const history = useHistory();
-    cosnt [FormData, setFormData] = useState({ username:"", password:""});
+    const [formData, setFormData] = useState({ username:"", password:""});
 
     const [formErrors, setFormErrors] = useState([]);
 
@@ -13,7 +13,7 @@ const LoginForm = ({ login }) => {
 
     async function handleSubmit(e){
         e.preventDefault();
-        let res = await login(formData);
+        let result = await login(formData);
         if (result.success){
             history.push("/companies");
         } else {
