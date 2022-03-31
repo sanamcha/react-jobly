@@ -19,7 +19,7 @@ function SignupForm({ signup }){
     //handle form submit
     async function handleSubmit(e) {
         e.preventDefault();
-        let res = await signup(formData);
+        let result = await signup(formData);
         if (result.success) {
             history.push("/companies");
         } else {
