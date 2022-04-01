@@ -1,17 +1,20 @@
 import React from "react";
+import JobCard from "./JobCard";
 
 
-
-function JobCardList(){
-
+function JobCardList({ jobs, apply }){
 
     return (
-        <div>
-            <h1>
-                This is JobCardList page......
-            </h1>
+        <div className="JobCardList">
+           {jobs.map(job =>(
+               <JobCard key={job.id} id={job.id} 
+               title={job.title} 
+               salary={job.salary} 
+               companyName={job.companyName} />
+
+           ))}
         </div>
-    )
+    );
 }
 
 export default JobCardList;
