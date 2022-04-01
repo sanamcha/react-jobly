@@ -6,13 +6,14 @@ import { useHistory } from "react-router-dom";
 function SignupForm({ signup }){
     const history = useHistory();
 
-    let initialValue = { username: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: ""}
+    const [formData, setFormData] = useState({
+      username: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      email: ""
+    });
 
-    const [formData, setFormData] = useState( initialValue)
     const [formErrors, setFormErrors] = useState([]);
 
 
