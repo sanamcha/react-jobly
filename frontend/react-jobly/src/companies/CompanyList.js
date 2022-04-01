@@ -3,10 +3,13 @@ import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "../SearchForm";
 
+
 function CompanyList(){
     const [companies, setCompanies] = useState([]);
 
     useEffect(function getCompaniesOnLoad() {
+        console.debug("getCompaniesOnLoad");
+
         search();
     }, []);
 
@@ -16,11 +19,13 @@ function CompanyList(){
         setCompanies(companies);
     }
 
+    if(!companies) return <h1>Loading.....</h1>;
+
     return (
-        <div className="CompanyList">
-            <SearchForm searchFor={search} />
+        <div className="CompanyList col-lg-8 offset-md-2">
+            <SearchForm toSearch={search} />
           {companies.length ? (
-              <div className="CompaniesList">
+              <div className="CompanyList-list">
               {companies.map(c => (
                   <CompanyCard 
                   key={c.handle}

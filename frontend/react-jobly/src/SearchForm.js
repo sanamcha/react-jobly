@@ -4,12 +4,14 @@ import React, { useState} from "react";
 
 // { CompanyList, Joblist } -> SearchForm
 function SearchForm({ toSearch }) {
+
+    console.debug("SearchForm", "toSearch=", typeof toSearch);
     const [search, setSearch ] = useState("");
 
     //to filter -> use trim()
 function handleSubmit(e) {
     e.preventDefault();
-    toSearch(search.trim)
+    toSearch(search.trim());
     setSearch(search.trim());
 }
 
@@ -19,12 +21,12 @@ function handleChange(e){
 }
 
 return (
-    <div className="SearchForm">
+    <div>
         <form 
-        className="form-inline"
+        className="form-inline form-control"
         onSubmit ={handleSubmit} >
         <input 
-        className="form-control"
+        className="form-control offset-md-4" 
         name="search"
         placeholder="search....."
         value={search}

@@ -9,8 +9,9 @@ import JobCardList from "../jobs/JobCardList";
 
 function CompanyDetail(){
     const { handle } = useParams();
+    console.debug("CompanyDetail", "handle=", handle);
 
-    const [company, setCompany] = useState([]);
+    const [company, setCompany] = useState(null);
 
     useEffect( function getCompanyAndJob() {
         async function getCompany(){
@@ -19,8 +20,10 @@ function CompanyDetail(){
         getCompany();
     }, [handle]);
 
+    if(!company) return <h2> Loading.....</h2>
+
     return (
-        <div>
+        <div className="CompanyDetail col-md-8 offset-md-2">
             <h4>{company.name}</h4>
             <p>{company.description}</p>
             <JobCardList jobs={company.jobs} />

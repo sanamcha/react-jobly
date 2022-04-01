@@ -32,7 +32,7 @@ function Routes({ login, signup }) {
                     <SignupForm signup={signup} />
                 </Route>
 
-                <PrivateRoute exact path="profile">
+                <PrivateRoute exact path="/profile">
                     <ProfileForm />
                 </PrivateRoute>
 

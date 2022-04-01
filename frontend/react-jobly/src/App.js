@@ -9,14 +9,19 @@ import UserContext from "./users/UserContext";
 import useLocalStorage from "./hooks/useLocalStorage";
 import jwt from "jsonwebtoken";
 
+
 //storing token in local-storage
 export const TOKEN_ID = "jobly-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
-  const [currentUser, setCurrentUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [token, setToken] = useLocalStorage(TOKEN_ID);
+
+  console.debug("App", "infoLoaded=", infoLoaded, 
+  "currentUser=", currentUser, "token=", token);
+
 
   useEffect(function loadUser(){
     async function getCurrentUser(){
@@ -28,6 +33,7 @@ function App() {
           setCurrentUser(currentUser);
           setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
+          console.error("loadUser: problem loading....", err)
           setCurrentUser(null);
         }  
       }
@@ -77,6 +83,8 @@ function apply(id) {
   JoblyApi.apply(currentUser.username, id);
   setApplicationIds(new Set([...applicationIds, id]));
 }
+
+if (!infoLoaded) return <h1>Loading....</h1>;
 
   return (
    <BrowserRouter>

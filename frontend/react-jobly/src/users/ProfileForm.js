@@ -31,6 +31,7 @@ function ProfileForm() {
         try{
             updatedUser = await JoblyApi.saveProfile(username, profileData);
         } catch(errors) {
+           
             setFormErrors(errors);
             return;
         }
@@ -49,13 +50,13 @@ function ProfileForm() {
     }
 
     return (
-        <div className="col-md-6">
+        <div className="col-md-6 offset-md-3">
           <h3>Profile</h3>
           <div className="card">
             <div className="card-body">
               <form>
                 <div className="form-group">
-                  <label>Username</label>
+                  <label>Username :</label>
                   <p className="form-control">{formData.username}</p>
                 </div>
                 <div className="form-group">

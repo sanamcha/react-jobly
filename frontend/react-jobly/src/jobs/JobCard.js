@@ -1,7 +1,7 @@
 import React from "react";
 import { useState , useEffect, useContext } from "react";
 import UserContext from "../users/UserContext";
-
+import "./JobCard.css";
 
 //JobCardList -> JobCard
 
@@ -27,16 +27,16 @@ function JobCard ({ id, title, companyName, salary, equity }) {
             <h6 className="card-title">{title}</h6>
             <p>{companyName}</p>
             {salary && <div>Salary : {salary}</div>}
-          {equity !== undefined && <div><small>Equity : {equity}</small></div>}
+          {equity !== undefined && <div>Equity : {equity}</div>}
           <button
-              className="btn btn-danger "
+              className="btn btn-danger float-right "
               onClick={handleApply}
               disabled={applied} >
             {applied ? "Applied" : "Apply"}
           </button>
           </div>  
         </div>
-    )
+    );
 }
 
 export default JobCard;
