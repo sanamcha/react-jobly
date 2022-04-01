@@ -1,0 +1,8 @@
+.JobCard {
+    max-height: 200px;
+    margin-bottom: 2rem;
+    color: purple;
+    border-radius: 0;
+    border: 1 px black;
+   
+  }
