@@ -8,7 +8,7 @@ const LoginForm = ({ login }) => {
     const [formData, setFormData] = useState({ username:"", password:""});
 
     const [formErrors, setFormErrors] = useState([]);
-
+    console.debug("formError=", formErrors);
     //handle form submit
 
     async function handleSubmit(e){
